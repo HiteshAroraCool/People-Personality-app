@@ -37,7 +37,7 @@
             height: 30px;
             font-size: 18px;
             text-align: center;
-            width: 50%;
+            width: 25%;
             margin-bottom: 15px;
             padding: 5px;
         }
@@ -75,14 +75,22 @@
 
             <h3>Gender</h3>
             <select name="gender" id="gender" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
+                <option value="1">Female</option>
+                <option value="0">male</option>
             </select>
 
             <h3>Education (Graduate or High School)</h3>
             <select name="edu" id="education" required>
                 <option value="1">Graduate</option>
                 <option value="0">High School</option>
+            </select>
+
+            <h3>Interest</h3>
+            <select name="Interest" id="Interest" required>
+                <option value="0">Arts</option>
+                <option value="1">Sports</option>
+                <option value="2">Technology</option>
+                <option value="3">Others</option>
             </select>
 
             <h3>On a scale from 1 to 10, how would you rate your preference between being an Introvert (I) and an Extravert (E)?</h3>
