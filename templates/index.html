@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Questionnaire</title>
+    <style>
+        body {
+            background-color: white;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: blue;
+        }
+
+        form {
+            margin: 20px auto;
+        }
+
+        form h3 {
+            margin: 10px 0 5px;
+        }
+
+        input[type="number"], select {
+            border-radius: 10px;
+            height: 30px;
+            font-size: 18px;
+            text-align: center;
+            width: 50%;
+            margin-bottom: 15px;
+            padding: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        #prediction {
+            margin-top: 20px;
+            font-size: 20px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Personality Questionnaire</h2>
+
+        <form action="{{ url_for('predict') }}" method="post">
+            <h3>Age</h3>
+            <input id="age" name="Age" type="number" min="1" required>
+
+            <h3>Gender</h3>
+            <select name="gender" id="gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <h3>Education (Graduate or High School)</h3>
+            <select name="edu" id="education" required>
+                <option value="1">Graduate</option>
+                <option value="0">High School</option>
+            </select>
+
+            <h3>On a scale from 1 to 10, how would you rate your preference between being an Introvert (I) and an Extravert (E)?</h3>
+            <input id="introversion" name="introversion" type="number" min="1" max="10" required>
+
+            <h3>On a scale from 1 to 10, how would you rate your preference between being a Sensor (S) or Intuitive (N)?</h3>
+            <input id="sensor" name="Sensor" type="number" min="1" max="10" required>
+
+            <h3>On a scale from 1 to 10, how would you rate your preference for Thinking (T) versus Feeling (F)?</h3>
+            <input id="thinking" name="Thinking" type="number" min="1" max="10" required>
+
+            <h3>On a scale from 1 to 10, how would you rate your preference for Judging (J) versus Perceiving (P)?</h3>
+            <input id="judging" name="Judging" type="number" min="1" max="10" required>
+
+            <br><br>
+            <button id="submit" type="submit">Submit</button>
+        </form>
+
+        <div id="prediction">
+            <h3>{{ prediction_text }}</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
